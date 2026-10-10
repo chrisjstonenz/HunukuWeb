@@ -167,7 +167,7 @@ textarea{min-height:135px;resize:vertical}
         <div class="wrap hero-grid">
           <div class="hero-copy">
             <div class="eyebrow">Business & Community Consulting</div>
-            <h1>When things are hard, complicated or stuck, we help create a practical way forward.</h1>
+            <h1>Helping people, teams and communities thrive and deliver.</h1>
             <p class="lead">Hūnuku brings fresh eyes to complex challenges — connecting strategy, people and execution, and bringing the right people, organisations and products together to help achieve your goals. We prototype quickly, experiment, gather feedback and turn learning into momentum.</p>
             <div class="actions">
               <button class="cta" data-route="contact">Contact us</button>
@@ -331,7 +331,7 @@ textarea{min-height:135px;resize:vertical}
           <div><div class="kicker">Contact us</div><h1>Tell us what you are trying to achieve.</h1><p class="lead">If something is stuck, complex or simply needs fresh eyes, start with the outcome you want. We can help shape the problem, connect what is missing and identify a practical next move.</p>
             <p><strong>Corporate</strong><br>www.hunuku.co.nz</p>
             <p><strong>Community</strong><br>www.hunuku.org</p>
-            <p><strong>Phone</strong><br>+64 21 797 421</p>
+            <p><strong>Email</strong><br><a href="mailto:hunuku@outlook.co.nz">hunuku@outlook.co.nz</a></p>\n            <p><strong>Phone</strong><br>+64 21 797 421</p>
           </div>
           <form class="form" id="contactForm">
             <div><label>Name</label><input required placeholder="Your name"></div>
@@ -339,7 +339,7 @@ textarea{min-height:135px;resize:vertical}
             <div><label>Organisation or group</label><input placeholder="Optional"></div>
             <div><label>What are you trying to achieve?</label><textarea required placeholder="Tell us a little about the challenge, opportunity or goal..."></textarea></div>
             <button class="cta" type="submit">Contact us</button>
-            <div class="notice" id="formNotice">Prototype only — the form works visually, but nothing has been sent.</div>
+            <div class="notice" id="formNotice">Your email app should open with the enquiry addressed to hunuku@outlook.co.nz. Review it, then press Send.</div>
           </form>
         </div>
       </section>
@@ -489,7 +489,21 @@ document.getElementById("detailBack").addEventListener("click",()=>route(previou
 
 document.getElementById("contactForm").addEventListener("submit",e=>{
   e.preventDefault();
+  const name=document.getElementById("contactName").value.trim();
+  const email=document.getElementById("contactEmail").value.trim();
+  const org=document.getElementById("contactOrg").value.trim();
+  const message=document.getElementById("contactMessage").value.trim();
+  const subject="Hūnuku enquiry" + (org ? " — " + org : "");
+  const body=[
+    "Name: " + name,
+    "Email: " + email,
+    org ? "Organisation / group: " + org : "",
+    "",
+    "What they are trying to achieve:",
+    message
+  ].filter(Boolean).join("\n");
   document.getElementById("formNotice").style.display="block";
+  window.location.href="mailto:hunuku@outlook.co.nz?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
 });
 
 document.getElementById("feedbackBtn").addEventListener("click",()=>document.getElementById("feedbackPanel").classList.toggle("open"));
