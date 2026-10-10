@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hūnuku — Clickable Prototype v8</title>
+<title>Hūnuku — Clickable Prototype v9</title>
 <meta name="description" content="Clickable Hūnuku website wireframe prototype">
 <style>
 :root {
@@ -43,16 +43,19 @@ img{display:block;max-width:100%}
 .prototypebar{background:#082f26;color:#dff3e7;font-size:.82rem}
 .prototypebar .inner{max-width:var(--max);margin:auto;padding:8px 22px;display:flex;justify-content:space-between;gap:20px}
 .view{display:none}
-.view.active{display:block}
+.view.active{display:block;animation:pageIn .22s ease both}
+@keyframes pageIn{from{opacity:.25;transform:translateY(4px)}to{opacity:1;transform:none}}
 .wrap{max-width:var(--max);margin:auto;padding-left:22px;padding-right:22px}
 .hero{min-height:585px;position:relative;overflow:hidden;background:
 linear-gradient(90deg,#fff 0%,#fff 38%,rgba(255,255,255,.82) 52%,rgba(255,255,255,.08) 78%),
 radial-gradient(circle at 80% 18%,rgba(202,238,194,.65),transparent 22%),
 linear-gradient(135deg,#09261e 0%,#0a7550 43%,#0f4d39 64%,#061f19 100%)}
 .hero::before{content:"";position:absolute;right:0;top:0;bottom:0;width:min(24vw,330px);opacity:.36;background-image:var(--raranga);background-size:64px 64px;background-position:center;mask-image:linear-gradient(90deg,transparent,rgba(0,0,0,.52) 24%,#000 68%);-webkit-mask-image:linear-gradient(90deg,transparent,rgba(0,0,0,.52) 24%,#000 68%);pointer-events:none}
-.hero-grid{min-height:585px;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;position:relative;z-index:2}
-.hero-copy{max-width:730px;padding-right:28px}
+.hero-grid{min-height:585px;display:grid;grid-template-columns:1fr;align-items:center;position:relative;z-index:2}
+.hero-copy{max-width:760px;padding-right:0}
 .hero-copy h1{color:#1c2421}
+.hero-copy h1,.hero-alt h1{max-width:760px}
+.hero-copy .lead,.hero-alt .lead{max-width:720px}
 .hero-copy .lead{color:#59625e}
 .eyebrow{letter-spacing:.25em;text-transform:uppercase;font-size:.78rem;font-weight:750;color:#234d40;margin-bottom:18px}
 h1,h2,h3{letter-spacing:-.035em;line-height:1.05;margin:0 0 16px}
@@ -73,9 +76,9 @@ h3{font-size:1.2rem}
 .arrow{font-size:2rem}
 .section{padding:84px 0}
 .soft{background:var(--soft)}
-.head{display:grid;grid-template-columns:1fr .9fr;gap:62px;align-items:end;margin-bottom:34px}
+.head{display:grid;grid-template-columns:1fr .9fr;gap:62px;align-items:start;margin-bottom:36px}
 .kicker{font-weight:800;color:var(--green);letter-spacing:.16em;text-transform:uppercase;font-size:.76rem;margin-bottom:12px}
-.head p{font-size:1.05rem;color:var(--muted);margin:0}
+.head p{font-size:1.05rem;color:var(--muted);margin:0;padding-top:30px}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .card{border:1px solid var(--line);border-radius:15px;padding:24px;background:#fff;box-shadow:0 8px 24px rgba(7,46,35,.04);min-height:192px;cursor:pointer;transition:.18s}
 .card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
@@ -97,11 +100,12 @@ radial-gradient(circle at 80% 18%,rgba(199,239,188,.55),transparent 24%),
 linear-gradient(135deg,#08251d,#0c7650,#0c4a37)}
 .hero-alt{min-height:520px;display:grid;align-items:center;position:relative;overflow:hidden}
 .hero-alt::before{content:"";position:absolute;right:-12px;top:0;bottom:0;width:min(23vw,320px);opacity:.30;background-image:var(--raranga);background-size:64px 64px;background-position:center;mask-image:linear-gradient(90deg,transparent,rgba(0,0,0,.58) 26%,#000 70%);-webkit-mask-image:linear-gradient(90deg,transparent,rgba(0,0,0,.58) 26%,#000 70%);pointer-events:none}
-.hero-alt>.wrap{position:relative;z-index:2}
+.hero-alt>.wrap{position:relative;z-index:2;width:100%}
+.hero-alt .detail{max-width:760px;padding:0}
 .theme-community .hero-alt .lead{color:rgba(255,255,255,.90)}
 .theme-community .hero-alt .eyebrow{color:#bde9ca}
 .business-hero{background:linear-gradient(90deg,#f6f7f6 0%,#f6f7f6 55%,rgba(246,247,246,.94) 67%,rgba(246,247,246,.16) 82%),linear-gradient(135deg,#0c3b2d,#0d7951,#061f19)!important}
-.business-hero .detail{max-width:710px;padding:34px 34px 34px 0}
+.business-hero .detail{max-width:760px;padding:0}
 .business-hero h1{color:#202724}
 .business-hero .lead{color:#5d6662}
 .business-hero .eyebrow{color:#355d50}
@@ -117,7 +121,7 @@ linear-gradient(135deg,#08251d,#0c7650,#0c4a37)}
 .proof{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}
 .proof strong{display:block;font-size:1.28rem;margin-bottom:8px}
 .proof span{color:var(--muted)}
-.contactgrid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px}
+.contactgrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
 .form{display:grid;gap:13px}
 label{font-weight:750;font-size:.9rem}
 input,textarea{width:100%;border:1px solid #cbd9d2;border-radius:10px;padding:13px 14px;background:#fff}
@@ -129,7 +133,7 @@ textarea{min-height:135px;resize:vertical}
 .values-mark{position:relative;z-index:1;display:grid;place-items:center}
 .values-mark span{display:grid;place-items:center;width:112px;height:112px;border-radius:50%;border:1px solid rgba(6,61,48,.20);background:rgba(255,255,255,.66);font-size:2rem;color:var(--green);font-family:Georgia,serif}
 .values-copy{position:relative;z-index:1;padding:46px 0}
-.quote-cycle{position:relative;min-height:126px;max-width:830px}
+.quote-cycle{position:relative;min-height:158px;max-width:830px}
 .value-slide{position:absolute;inset:0;opacity:0;transform:translateY(8px);transition:opacity .55s ease,transform .55s ease;pointer-events:none}
 .value-slide.active{opacity:1;transform:none;pointer-events:auto}
 .value-slide blockquote{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.45rem,2.5vw,2.15rem);line-height:1.25;color:#173d31;font-weight:600}
@@ -153,7 +157,7 @@ textarea{min-height:135px;resize:vertical}
 .mobilepanel{display:none}
 
 @media(min-width:901px){
-  .hero-grid{padding-top:78px;padding-bottom:126px}
+  .hero-grid{padding-top:92px;padding-bottom:126px}
   .hero-alt>.wrap{padding-top:92px;padding-bottom:92px}
   .section{padding-top:96px;padding-bottom:96px}
   .values-copy{padding-top:56px;padding-bottom:56px}
@@ -165,8 +169,8 @@ textarea{min-height:135px;resize:vertical}
   .links.open{display:flex}.links button{text-align:left;padding:10px 0}.links .cta{text-align:center;margin-top:8px}
   .hero{background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,.94) 64%,rgba(255,255,255,.2)),linear-gradient(135deg,#09261e,#0a7550,#061f19)}
   .hero-grid{grid-template-columns:1fr;min-height:570px;padding:55px 0 105px}.quote{display:none}
-  .switchgrid{grid-template-columns:1fr}.head,.twocol,.contactgrid{grid-template-columns:1fr;gap:28px}.cards{grid-template-columns:repeat(2,1fr)}.footgrid{align-items:flex-start;flex-direction:column}
-  .values-inner{grid-template-columns:1fr;gap:0;min-height:320px}.values-mark{display:none}.values-copy{padding:48px 0}.values-weave::before{width:90px;opacity:.13}.quote-cycle{min-height:165px}
+  .switchgrid{grid-template-columns:1fr}.head,.twocol,.contactgrid{grid-template-columns:1fr;gap:28px}.head p{padding-top:0}.hero-alt .detail,.hero-copy{max-width:none}.cards{grid-template-columns:repeat(2,1fr)}.footgrid{align-items:flex-start;flex-direction:column}
+  .values-inner{grid-template-columns:1fr;gap:0;min-height:340px}.values-mark{display:none}.values-copy{padding:48px 0}.values-weave::before{width:90px;opacity:.13}.quote-cycle{min-height:195px}
 }
 @media(max-width:600px){
   .prototypebar .inner{font-size:.72rem}.section{padding:62px 0}.cards{grid-template-columns:1fr}h1{font-size:clamp(2.7rem,13vw,4.2rem)}.lead{font-size:1.05rem}
@@ -362,7 +366,8 @@ textarea{min-height:135px;resize:vertical}
           <div><div class="kicker">Contact us</div><h1>Tell us what you are trying to achieve.</h1><p class="lead">If something is stuck, complex or simply needs fresh eyes, start with the outcome you want. We can help shape the problem, connect what is missing and identify a practical next move.</p>
             <p><strong>Corporate</strong><br>www.hunuku.co.nz</p>
             <p><strong>Community</strong><br>www.hunuku.org</p>
-            <p><strong>Email</strong><br><a href="mailto:hunuku@outlook.co.nz">hunuku@outlook.co.nz</a></p>\n            <p><strong>Phone</strong><br>+64 21 797 421</p>
+            <p><strong>Email</strong><br><a href="mailto:hunuku@outlook.co.nz">hunuku@outlook.co.nz</a></p>
+            <p><strong>Phone</strong><br>+64 21 797 421</p>
           </div>
           <form class="form" id="contactForm">
             <div><label for="contactName">Name</label><input id="contactName" required placeholder="Your name"></div>
@@ -538,7 +543,7 @@ function route(name, updateHash=true) {
   document.getElementById("navLinks").classList.remove("open");
   document.getElementById("domainLabel").textContent = name==="community" ? "www.hunuku.org" : "www.hunuku.co.nz";
   if(updateHash) history.pushState(null,"","#"+name);
-  scrollTo({top:0,behavior:"smooth"});
+  scrollTo({top:0,behavior:"auto"});
 }
 
 document.querySelectorAll("[data-route]").forEach(el=>el.addEventListener("click",()=>route(el.dataset.route)));
