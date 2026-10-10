@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hūnuku — Clickable Prototype v4</title>
+<title>Hūnuku — Clickable Prototype v5</title>
 <meta name="description" content="Clickable Hūnuku website wireframe prototype">
 <style>
 :root {
@@ -138,9 +138,6 @@ label{font-weight:750;font-size:.9rem}
 input,textarea{width:100%;border:1px solid #cbd9d2;border-radius:10px;padding:13px 14px;background:#fff}
 textarea{min-height:135px;resize:vertical}
 .notice{display:none;padding:12px 14px;background:#e9f5ed;border-radius:10px;color:#0b5d40;margin-top:6px}
-.whakatauki-rail{position:fixed;right:8px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;z-index:35;display:flex;align-items:center;gap:11px;padding:16px 7px;border-left:1px solid rgba(11,106,72,.20);color:rgba(50,67,60,.56);font-size:.72rem;letter-spacing:.055em;pointer-events:none;max-height:72vh}
-.whakatauki-rail strong{font-weight:800;color:rgba(6,61,48,.63)}
-.whakatauki-rail .rail-dot{color:rgba(185,177,132,.9)}
 .values-weave{position:relative;overflow:hidden;background:#f1f4f1;border-top:1px solid #dce5df;border-bottom:1px solid #dce5df}
 .values-weave::before{content:"";position:absolute;inset:0 auto 0 0;width:190px;opacity:.22;background:
 linear-gradient(45deg,transparent 34%,var(--harakeke) 35% 44%,transparent 45% 56%,rgba(11,106,72,.48) 57% 66%,transparent 67%),
@@ -179,7 +176,7 @@ background-size:58px 58px}
   .hero{background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,.94) 64%,rgba(255,255,255,.2)),linear-gradient(135deg,#09261e,#0a7550,#061f19)}
   .hero-grid{grid-template-columns:1fr;min-height:570px;padding:55px 0 105px}.quote{display:none}
   .switchgrid{grid-template-columns:1fr}.head,.twocol,.contactgrid{grid-template-columns:1fr;gap:28px}.cards{grid-template-columns:repeat(2,1fr)}.footgrid{align-items:flex-start;flex-direction:column}
-  .whakatauki-rail{display:none}.values-inner{grid-template-columns:1fr;gap:0;min-height:320px}.values-mark{display:none}.values-copy{padding:48px 0}.values-weave::before{width:90px;opacity:.13}.quote-cycle{min-height:165px}
+  .values-inner{grid-template-columns:1fr;gap:0;min-height:320px}.values-mark{display:none}.values-copy{padding:48px 0}.values-weave::before{width:90px;opacity:.13}.quote-cycle{min-height:165px}
 }
 @media(max-width:600px){
   .prototypebar .inner{font-size:.72rem}.section{padding:62px 0}.cards{grid-template-columns:1fr}h1{font-size:clamp(2.7rem,13vw,4.2rem)}.lead{font-size:1.05rem}
@@ -204,10 +201,6 @@ background-size:58px 58px}
       </nav>
     </div>
   </header>
-
-  <aside class="whakatauki-rail" aria-label="Hūnuku value">
-    <strong>He waka eke noa</strong><span class="rail-dot">◆</span><span>A canoe we are all in together</span>
-  </aside>
 
   <main>
     <!-- HOME -->
@@ -427,11 +420,16 @@ background-size:58px 58px}
             <blockquote>He aha te mea nui o te ao? He tangata, he tangata, he tangata.</blockquote>
             <p>What is the most important thing in the world? It is people, it is people, it is people.</p>
           </div>
+          <div class="value-slide">
+            <blockquote>Nā tō rourou, nā taku rourou, ka ora ai te iwi.</blockquote>
+            <p>With your basket and my basket, the people will live.</p>
+          </div>
         </div>
         <div class="value-dots" aria-label="Choose a value">
           <button class="value-dot active" data-value-index="0" aria-label="Show first value"></button>
           <button class="value-dot" data-value-index="1" aria-label="Show second value"></button>
           <button class="value-dot" data-value-index="2" aria-label="Show third value"></button>
+          <button class="value-dot" data-value-index="3" aria-label="Show fourth value"></button>
         </div>
       </div>
     </div>
@@ -593,11 +591,11 @@ function showValue(index){
   valueDots.forEach((el,i)=>el.classList.toggle("active",i===valueIndex));
 }
 valueDots.forEach((dot,i)=>dot.addEventListener("click",()=>showValue(i)));
-let valueTimer=setInterval(()=>showValue(valueIndex+1),8000);
+let valueTimer=setInterval(()=>showValue(valueIndex+1),2000);
 const valuesBand=document.querySelector(".values-weave");
 if(valuesBand){
   valuesBand.addEventListener("mouseenter",()=>clearInterval(valueTimer));
-  valuesBand.addEventListener("mouseleave",()=>{valueTimer=setInterval(()=>showValue(valueIndex+1),8000);});
+  valuesBand.addEventListener("mouseleave",()=>{valueTimer=setInterval(()=>showValue(valueIndex+1),2000);});
 }
 
 document.getElementById("feedbackBtn").addEventListener("click",()=>document.getElementById("feedbackPanel").classList.toggle("open"));
