@@ -185,10 +185,11 @@ textarea{min-height:135px;resize:vertical}
 /* Go-live additions: built from the existing Hūnuku tokens and component patterns. */
 body{overflow-x:hidden}
 .go-live-main section[id]{scroll-margin-top:122px}
-.links .cta{padding:11px 16px;color:#fff}
+.links .cta{padding:11px 16px;color:#fff;background:var(--deep);box-shadow:0 8px 22px rgba(6,61,48,.18)}
 .links .cta::after{display:none}
 .proof-strip{grid-template-columns:repeat(4,1fr)}
 .proof-strip .proof{box-shadow:none}
+.audience-promise{display:block;margin:8px 0 10px;max-width:560px;line-height:1.45}
 .audience-switch{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 28px}
 .audience-switch button{border:1px solid var(--line);border-radius:999px;padding:11px 17px;background:#fff;color:var(--deep);font-weight:800;cursor:pointer;min-height:44px}
 .audience-switch button[aria-pressed="true"]{background:var(--deep);color:#fff;border-color:var(--deep)}
@@ -232,6 +233,9 @@ select{width:100%;border:1px solid #cbd9d2;border-radius:10px;padding:13px 14px;
 .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
 .text-link{color:var(--green);font-weight:800;text-decoration:underline;text-underline-offset:3px}
 .footer .footlinks{align-items:center}
+select{font:inherit}
+.cta,.ghost,.links button,.mobile{min-height:44px}
+.mobile{min-width:44px}
 button,summary,select,input,textarea{touch-action:manipulation}
 button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid rgba(11,106,72,.35);outline-offset:3px}
 @media(max-width:900px){
@@ -292,7 +296,7 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
             <div>
               <h3>Business and corporate</h3>
               <small>Improve &nbsp; | &nbsp; Transform &nbsp; | &nbsp; Deliver</small>
-              <p>For leaders with change that has lost traction, a strategy that hasn't reached delivery, or a decision to test before committing.</p>
+              <span class="audience-promise">For leaders with change that has lost traction, a strategy that hasn't reached delivery, or a decision to test before committing.</span>
               <strong>www.hunuku.co.nz</strong>
             </div><span class="arrow">→</span>
           </button>
@@ -300,7 +304,7 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
             <div>
               <h3>Clubs and community organisations</h3>
               <small>Connect &nbsp; | &nbsp; Engage &nbsp; | &nbsp; Prosper</small>
-              <p>For boards, clubs and community groups turning good intent into clear, achievable action.</p>
+              <span class="audience-promise">For boards, clubs and community groups turning good intent into clear, achievable action.</span>
               <strong>www.hunuku.org</strong>
             </div><span class="arrow">→</span>
           </button>
