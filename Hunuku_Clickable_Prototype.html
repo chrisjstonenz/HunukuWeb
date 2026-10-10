@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hūnuku — Clickable Prototype v7</title>
+<title>Hūnuku — Clickable Prototype v8</title>
 <meta name="description" content="Clickable Hūnuku website wireframe prototype">
 <style>
 :root {
@@ -399,7 +399,7 @@ textarea{min-height:135px;resize:vertical}
         <div class="quote-cycle" id="quoteCycle">
           <div class="value-slide active">
             <blockquote>He waka eke noa</blockquote>
-            <p>A canoe we are all in together.</p>
+            <p><em>We are all in this together; we rise and fall together.</em></p>
           </div>
           <div class="value-slide">
             <blockquote>He huarahi e taea ai te tangata, he huarahi e taea ai te iwi.</blockquote>
@@ -413,12 +413,17 @@ textarea{min-height:135px;resize:vertical}
             <blockquote>Nā tō rourou, nā taku rourou, ka ora ai te iwi.</blockquote>
             <p>With your basket and my basket, the people will live.</p>
           </div>
+          <div class="value-slide">
+            <blockquote>Mā te kimi ka kite, mā te kite ka mōhio, mā te mōhio ka mārama.</blockquote>
+            <p><strong>Seek and you will discover; discover and you will know; know and you will understand.</strong></p>
+          </div>
         </div>
         <div class="value-dots" aria-label="Choose a value">
           <button class="value-dot active" data-value-index="0" aria-label="Show first value"></button>
           <button class="value-dot" data-value-index="1" aria-label="Show second value"></button>
           <button class="value-dot" data-value-index="2" aria-label="Show third value"></button>
           <button class="value-dot" data-value-index="3" aria-label="Show fourth value"></button>
+          <button class="value-dot" data-value-index="4" aria-label="Show fifth value"></button>
         </div>
       </div>
     </div>
@@ -580,11 +585,11 @@ function showValue(index){
   valueDots.forEach((el,i)=>el.classList.toggle("active",i===valueIndex));
 }
 valueDots.forEach((dot,i)=>dot.addEventListener("click",()=>showValue(i)));
-let valueTimer=setInterval(()=>showValue(valueIndex+1),2000);
+let valueTimer=setInterval(()=>showValue(valueIndex+1),4000);
 const valuesBand=document.querySelector(".values-weave");
 if(valuesBand){
   valuesBand.addEventListener("mouseenter",()=>clearInterval(valueTimer));
-  valuesBand.addEventListener("mouseleave",()=>{valueTimer=setInterval(()=>showValue(valueIndex+1),2000);});
+  valuesBand.addEventListener("mouseleave",()=>{valueTimer=setInterval(()=>showValue(valueIndex+1),4000);});
 }
 
 document.getElementById("feedbackBtn").addEventListener("click",()=>document.getElementById("feedbackPanel").classList.toggle("open"));
