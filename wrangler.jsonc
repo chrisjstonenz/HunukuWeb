@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "hunuku",
+  "name": "hunukuweb1",
   "compatibility_date": "2026-10-10",
   "assets": {
     "directory": "./public",
