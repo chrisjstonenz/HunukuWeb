@@ -620,28 +620,8 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
 const FORM_ENDPOINT = "";
 
 let previousRoute = "home";
-let currentAudience = null;
 const validRoutes = new Set(["home","business","community","experience","contact"]);
 const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-function setAudience(audience) {
-  if (audience !== "business" && audience !== "community") {
-    currentAudience = null;
-    document.getElementById("audienceBusiness").setAttribute("aria-pressed", "false");
-    document.getElementById("audienceCommunity").setAttribute("aria-pressed", "false");
-    document.getElementById("audiencePanelBusiness").hidden = true;
-    document.getElementById("audiencePanelCommunity").hidden = true;
-    document.getElementById("audiencePrompt").hidden = false;
-    return;
-  }
-  currentAudience = audience;
-  const isCommunity = currentAudience === "community";
-  document.getElementById("audienceBusiness").setAttribute("aria-pressed", String(!isCommunity));
-  document.getElementById("audienceCommunity").setAttribute("aria-pressed", String(isCommunity));
-  document.getElementById("audiencePanelBusiness").hidden = isCommunity;
-  document.getElementById("audiencePanelCommunity").hidden = !isCommunity;
-  document.getElementById("audiencePrompt").hidden = true;
-}
 
 function route(name, updateHash=true) {
   if (!validRoutes.has(name)) name = "home";
@@ -653,8 +633,6 @@ function route(name, updateHash=true) {
   const nav = document.getElementById("navLinks");
   nav.classList.remove("open");
   document.getElementById("mobileMenu").setAttribute("aria-expanded","false");
-  if (name === "business") setAudience("business");
-  if (name === "community") setAudience("community");
   if (updateHash) history.pushState(null, "", "#" + name);
   window.scrollTo({top:0, behavior:"auto"});
 }
@@ -667,8 +645,6 @@ document.getElementById("mobileMenu").addEventListener("click", () => {
   nav.classList.toggle("open", open);
   document.getElementById("mobileMenu").setAttribute("aria-expanded", String(open));
 });
-
-document.querySelectorAll("[data-audience]").forEach(btn => btn.addEventListener("click", () => setAudience(btn.dataset.audience)));
 
 document.querySelectorAll("[data-scroll]").forEach(btn => btn.addEventListener("click", () => {
   const target = document.getElementById(btn.dataset.scroll);
