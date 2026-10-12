@@ -1,20 +1,10 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "hunukuweb1",
-  "compatibility_date": "2026-10-10",
+  "compatibility_date": "2026-10-12",
   "workers_dev": true,
   "assets": {
     "directory": "./public",
     "not_found_handling": "single-page-application"
-  },
-  "routes": [
-    {
-      "pattern": "hunuku.co.nz/*",
-      "zone_name": "hunuku.co.nz"
-    },
-    {
-      "pattern": "www.hunuku.co.nz/*",
-      "zone_name": "hunuku.co.nz"
-    }
-  ]
+  }
 }
