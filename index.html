@@ -83,6 +83,7 @@ h3{font-size:1.2rem}
 .community-switch{background:#fff;color:var(--deep);border-color:rgba(11,106,72,.24);box-shadow:inset 0 4px 0 var(--pounamu),var(--shadow)}
 .community-switch small,.community-switch strong{color:var(--deep)}
 .switch h2{font-size:1.2rem;margin-bottom:16px}
+.switch strong{display:inline-block;margin-top:4px;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
 .switch small{display:block;text-transform:uppercase;letter-spacing:.16em;margin:5px 0 8px;font-weight:700;font-size:.72rem}
 .arrow{font-size:2rem}
 .section{padding:84px 0}
@@ -105,6 +106,7 @@ h3{font-size:1.2rem}
 .banner::after{content:"";position:absolute;right:0;top:0;width:190px;height:100%;opacity:.20;background-image:var(--raranga);background-size:60px 60px;mask-image:linear-gradient(90deg,transparent,#000 46%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 46%);pointer-events:none}
 .banner>*{position:relative;z-index:1}
 .banner p{max-width:760px;color:#e7f3ed}
+.banner .ghost{background:#fff;color:var(--deep);border-color:#fff}
 .theme-community .hero-alt{color:white;background:
 linear-gradient(90deg,rgba(6,61,48,.97),rgba(11,106,72,.84) 52%,rgba(10,121,83,.34)),
 radial-gradient(circle at 80% 18%,rgba(223,240,230,.46),transparent 24%),
@@ -299,22 +301,22 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
           <div class="hero-copy">
             <div class="eyebrow">Business and community consulting</div>
             <h1>When the work is stuck, we help you find the next move.</h1>
-            <p class="lead">Hūnuku is an Auckland-based business and community consultancy. We bring fresh eyes and practical experience to complex, high-stakes work, connecting strategy, people and delivery so progress starts moving again.</p>
+            <p class="lead">Hūnuku is an Auckland-based business and community consultancy. We bring fresh eyes and practical experience to complex or stuck work, helping reconnect purpose, people and delivery so progress can move again.</p>
             <div class="actions">
               <button class="cta" data-route="contact">Let's have a chat</button>
-              <button class="ghost" data-scroll="waysToWork">See how we can help</button>
+              <button class="ghost" data-scroll="audienceChoices">Choose your path</button>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="switcher">
+      <div class="switcher" id="audienceChoices">
         <div class="wrap switchgrid">
           <button class="switch dark business-switch" data-route="business">
             <div>
               <h2>Business and corporate</h2>
               <small>Improve &nbsp; | &nbsp; Transform &nbsp; | &nbsp; Deliver</small>
-              <span class="audience-promise">For leaders with change that has lost traction, a strategy that hasn't reached delivery, or a decision to test before committing.</span>
+              <span class="audience-promise">For leaders with change that has lost traction, a strategy that has not reached delivery, or a decision that needs fresh eyes before committing.</span>
               <strong>Explore business support</strong>
             </div><span class="arrow">→</span>
           </button>
@@ -322,7 +324,7 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
             <div>
               <h2>Clubs and community organisations</h2>
               <small>Connect &nbsp; | &nbsp; Engage &nbsp; | &nbsp; Prosper</small>
-              <span class="audience-promise">For boards, clubs and community groups turning good intent into clear, achievable action.</span>
+              <span class="audience-promise">For boards, clubs and community groups wanting stronger participation, clearer priorities and better outcomes for the people they serve.</span>
               <strong>Explore community support</strong>
             </div><span class="arrow">→</span>
           </button>
@@ -340,197 +342,28 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
         </div>
       </section>
 
-      <section class="section soft" id="waysToWork">
-        <div class="wrap">
-          <div class="head">
-            <div><div class="kicker">How we can help</div><h2>Choose where you fit, then open anything that sounds like your situation.</h2></div>
-            <p>We work with both businesses and community organisations. The starting point is the outcome you need, not a fixed method.</p>
-          </div>
-          <div class="audience-switch" role="group" aria-label="Choose an audience">
-            <button type="button" id="audienceBusiness" data-audience="business" aria-pressed="false">Business</button>
-            <button type="button" id="audienceCommunity" data-audience="community" aria-pressed="false">Clubs and community</button>
-          </div>
-          <p id="audiencePrompt">Choose Business or Clubs and community to see the options that fit you.</p>
-
-          <div class="audience-panel" id="audiencePanelBusiness" hidden>
-            <article class="card start-card">
-              <h3>Not sure where to start? Let's have a chat.</h3>
-              <p>A conversation, no preparation needed, to see where we might be able to help.</p>
-              <div class="actions"><button class="cta" data-route="contact">Let's have a chat</button></div>
-            </article>
-            <div class="offer-list">
-<details class="card offer-detail">
-  <summary><span class="offer-summary"><strong>Direction and priorities</strong><span>Do you have a clear vision, and where do you start?</span></span></summary>
-  <div class="offer-body">
-    <div class="offer-item"><h3>Vision to delivery planning</h3><p>Find or refresh your vision, build practical streams of work from it, and plan at the level you need: themes, quarterly or sprint.</p><p class="you-get"><strong>You get:</strong> a one-page vision, themes or streams with clear owners, and a plan at your chosen level.</p></div>
-    <div class="offer-item"><h3>Prioritisation and value session</h3><p>Work out where to start, what comes next and how to rank it, based on value rather than the loudest voice or latest crisis.</p><p class="you-get"><strong>You get:</strong> a ranked list (start, next, later, stop), the value measures behind it, and a way to re-rank as things change.</p></div>
-  </div>
-</details>
-<details class="card offer-detail">
-  <summary><span class="offer-summary"><strong>Risk and resilience</strong><span>What happens if something goes wrong tomorrow?</span></span></summary>
-  <div class="offer-body">
-    <div class="offer-item"><h3>Risk and resilience review</h3><p>Walk through realistic scenarios. Check which risks are documented, which may have been missed, what mitigations exist and how well informed your stakeholders are. Talk through audit readiness, and look at the worst case and what it would truly cost.</p><p class="you-get"><strong>You get:</strong> your top risks and gaps, the worst-case story with a cost estimate, where stakeholders are under-informed, and a short action list.</p><div class="offer-note">A facilitated review and conversation. It is not a formal audit or assurance.</div></div>
-  </div>
-</details>
-<details class="card offer-detail">
-  <summary><span class="offer-summary"><strong>Digital and AI</strong><span>Why is this digital project stuck, and where does AI fit?</span></span></summary>
-  <div class="offer-body">
-    <div class="offer-item"><h3>Digital projects, jargon and AI session</h3><p>Plain-English translation between tech and business, a look at why a digital project has stalled, and a practical conversation about where to start with AI and how it might fit now or later.</p><p class="you-get"><strong>You get:</strong> a plain-English picture of what is happening, the three or four things most worth fixing, and a sensible first step on AI.</p></div>
-    <div class="offer-item"><h3>AI for your team</h3><p>Coaching for your team on specific processes: where AI can save time, how to use it well, and what to keep human. We also cover what not to put into AI tools, particularly customer, member and staff data.</p><p class="you-get"><strong>You get:</strong> a short list of processes worth improving and a practical way to start.</p></div>
-    <div class="offer-item"><h3>Prototype sprint</h3><p>Take one idea to something testable, using AI-assisted building where it helps. Put it in front of real people, gather feedback, then decide whether to go ahead.</p><p class="you-get"><strong>You get:</strong> a testable prototype, real feedback, and a clear go or no-go decision.</p></div>
-  </div>
-</details>
-<details class="card offer-detail">
-  <summary><span class="offer-summary"><strong>Leaders and teams</strong><span>How do you build a team that is great to be part of?</span></span></summary>
-  <div class="offer-body">
-    <div class="offer-item"><h3>Leader and team coaching</h3><p>Coaching for leaders and teams to clarify accountability, make priorities visible and sustain better team practices after support ends.</p><p class="you-get"><strong>You get:</strong> clearer ownership, priorities everyone can see, and working practices that last.</p></div>
-  </div>
-</details>
-<details class="card offer-detail">
-  <summary><span class="offer-summary"><strong>When work is stuck</strong><span>Something matters, and you are not moving.</span></span></summary>
-  <div class="offer-body">
-    <div class="offer-item"><h3>Fresh eyes session</h3><p>A focused working session on what is really going on, with a one-page written summary and a recommended next move.</p></div>
-    <div class="offer-item"><h3>Stuck-to-moving diagnostic</h3><p>A short, structured look at where the work is stuck, ending in a prioritised plan.</p></div>
-    <div class="offer-item"><h3>Interim lead or recovery support</h3><p>Embedded leadership for delivery, transformation or operations when you need someone to step in.</p></div>
-  </div>
-</details></div>
-          </div>
-
-          <div class="audience-panel" id="audiencePanelCommunity" hidden>
-            <article class="card start-card">
-              <h3>Not sure where to start? Let's have a chat.</h3>
-              <p>A conversation, no preparation needed, to see where we might be able to help your club or organisation.</p>
-              <div class="actions"><button class="cta" data-route="contact">Let's have a chat</button></div>
-            </article>
-            <div class="offer-list">
-<details class="card offer-detail">
-  <summary><span class="offer-summary"><strong>Club health check</strong><span>Where are you strong, and where are the gaps?</span></span></summary>
-  <div class="offer-body"><div class="offer-item"><p>A conversation and a short written summary of your strengths, gaps and next steps.</p></div></div>
-</details>
-<details class="card offer-detail">
-  <summary><span class="offer-summary"><strong>Plan on a page workshop</strong><span>Can you agree where you are heading, and what to do first?</span></span></summary>
-  <div class="offer-body"><div class="offer-item"><p>A half-day with your board or committee, ending with a clear direction and 90-day actions.</p></div></div>
-</details>
-<details class="card offer-detail">
-  <summary><span class="offer-summary"><strong>Board and committee mentoring</strong><span>How can your governance work better for your members?</span></span></summary>
-  <div class="offer-body"><div class="offer-item"><p>Practical mentoring for chairs, presidents and committee members on roles, meeting rhythm, decisions and volunteer engagement.</p></div></div>
-</details>
-<details class="card offer-detail">
-  <summary><span class="offer-summary"><strong>Community building and engagement</strong><span>Is your club visible, relevant and connected to the community around it?</span></span></summary>
-  <div class="offer-body"><div class="offer-item"><p>Chris listens to how you currently attract, engage and retain people, then compares that with current practice and what successful clubs and community organisations are doing today. Together we look at membership experience, community relationships, communications, events, partnerships and profile.</p><p>The aim is to identify where awareness or participation is being lost and where practical changes can help your organisation become more visible, more connected and increasingly recognised as a heart of its community.</p><p>Chris has tested a range of practical approaches to participation and engagement and has supported the recovery of several clubs and trusts.</p><p class="you-get"><strong>You get:</strong> a clear picture of where you are today, practical opportunities to lift participation and awareness, and a prioritised plan for strengthening your role in the community.</p></div></div>
-</details>
-<details class="card offer-detail">
-  <summary><span class="offer-summary"><strong>Funding, impact and community outcomes</strong><span>Can you show the difference your funding is meant to make?</span></span></summary>
-  <div class="offer-body"><div class="offer-item"><p>Connect funding opportunities with the outcomes your community needs and the benefits funders want to see delivered. We look at who benefits, what success should look like, how the activity creates lasting value, and how to demonstrate participation, reach, connection and ongoing community benefit.</p><p>The goal is stronger alignment for everyone involved: communities see tangible benefit, organisations make better use of funding, and funders can see how their investment contributes to meaningful outcomes.</p><p class="you-get"><strong>You get:</strong> a clearer community-outcomes story, practical measures of success, stronger alignment between your plans and potential funding, and a better foundation for funding applications, stakeholder conversations and reporting.</p></div></div>
-</details>
-<details class="card offer-detail">
-  <summary><span class="offer-summary"><strong>Funding-ready package</strong><span>How do you make the case for support?</span></span></summary>
-  <div class="offer-body"><div class="offer-item"><p>Shape your need, outcomes and evidence into a clear proposition for funders or councils. Move from simply asking for funding to demonstrating the community outcome worth investing in.</p></div></div>
-</details>
-<p class="offer-note">Any of these can include a prioritisation session, a light risk and resilience check, or a conversation about digital tools and AI for your club.</p></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="wrap">
-          <div class="head">
-            <div><div class="kicker">Connections and business development</div><h2>Who should we be talking to?</h2></div>
-            <p>Good ideas, products and organisations often fail to meet the people who need them. We connect them.</p>
-          </div>
-          <p class="lead who-intro">Built on more than 25 years across business and community, and strong networks in sport, community and the AI and technology space, Hūnuku helps organisations find the right partners, shape their proposition, and get in front of the people it is for. We start from the customer's side, and the connection works in both directions.</p>
-          <div class="connection-grid" style="margin-top:28px">
-            <details class="card offer-detail">
-              <summary><span class="offer-summary"><strong>If you are a club, community organisation or business</strong><span>We help you find the people, funders and products that can help.</span></span></summary>
-              <div class="offer-body"><div class="offer-item"><h3>Partnership and introductions session</h3><p>Clarify what you are trying to achieve, map who could help, and agree the first three conversations to have. Where it makes sense, we make the introductions.</p></div></div>
-            </details>
-            <details class="card offer-detail">
-              <summary><span class="offer-summary"><strong>If you are building something for clubs and communities</strong><span>We help you understand what they need before you build.</span></span></summary>
-              <div class="offer-body"><div class="offer-item"><h3>Sector insight session</h3><p>What clubs and community organisations actually need, how they decide, and how to test your idea with real organisations before you build further.</p></div></div>
-            </details>
-          </div>
-        </div>
-      </section>
-
       <section class="section soft">
         <div class="wrap">
           <div class="head">
-            <div><div class="kicker">How we work</div><h2>Practical progress, built with the people affected.</h2></div>
-            <p>We are comfortable with ambiguity and with work that sits between strategy, customers, teams and community.</p>
-          </div>
-          <div class="steps">
-            <div class="step"><b>1</b><div><h3>Listen and understand</h3><p>Start from the customer's view and the people affected, and get clear on what success needs to look like.</p></div></div>
-            <div class="step"><b>2</b><div><h3>Connect</h3><p>Bring together the people, organisations, products and decisions needed to move.</p></div></div>
-            <div class="step"><b>3</b><div><h3>Prototype and learn</h3><p>Test early, gather feedback and use what you learn to improve the next move.</p></div></div>
-            <div class="step"><b>4</b><div><h3>Deliver and embed</h3><p>Create momentum, make progress visible and leave stronger capability behind.</p></div></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="wrap">
-          <div class="kicker">Founder</div>
-          <h2>Chris Stone</h2>
-          <div class="twocol">
             <div>
-              <p class="lead">Chris Stone is the founder of Hūnuku, based in Auckland.</p>
-              <p>Chris founded Hūnuku to bring together two sides of his working life: more than 20 years in corporate, operations and coaching, and long-standing governance and leadership in community and sport. Hūnuku brings that experience together to help people plan, deliver and perform better, and to build exceptional teams that are great to be part of while delivering things that truly matter.</p><p>Chris leads the work, with Hūnuku able to bring in additional people or specialist contractors where the work calls for it.</p>
-              <p>Chris gives volunteers and operational teams a real voice in planning and creates enough structure for good ideas to become sustainable programmes. He is trained to look at problems from the customer's point of view and starts there.</p>
-              <div class="value-hero"><strong>He waka eke noa</strong><span>We are all in this together; we rise and fall together.</span></div>
+              <div class="kicker">Founder-led</div>
+              <h2>Fresh eyes for the gaps that are hard to see from inside.</h2>
             </div>
-            <div class="offer-list">
-              <details class="card offer-detail">
-                <summary><span class="offer-summary"><strong>Business experience</strong><span>Air New Zealand, 2004 to 2026, plus earlier technical roles.</span></span></summary>
-                <div class="offer-body"><ul class="detail-list">
-<li><strong>Air New Zealand, 2004 to 2026:</strong> Chris led 24/7 support of critical airline systems across a network of up to 50 airports, with technical teams of up to 20 and budgets up to $6 million.</li>
-<li>Chris led customer self-service transformation across more than 20 airports. A full rebuild of the kiosk application contributed to a 17% increase in completed kiosk transactions (previous role).</li>
-<li>Chris replaced 234 kiosks across 12 New Zealand locations, including the RFP and contract negotiation.</li>
-<li>Chris led the digital response to airport closures and restarts during Covid, including the Trans-Tasman travel bubble.</li>
-<li>As Business Performance Coach and Enterprise Agile Coach from 2022 to 2026, Chris coached leaders and teams across Cargo, Finance, People, Safety, Risk, Internal Audit, Resilience, Engineering and Maintenance, and Digital Platforms to plan, prioritise and sustain new practices. The Risk and Internal Audit coaching received an industry award for innovation.</li>
-<li>Chris led a cross-functional dangerous-goods programme to completion ahead of schedule.</li>
-<li><strong>Earlier:</strong> Systems Engineer and Database Administrator, Minter Ellison Rudd Watts, 1997 to 2004.</li>
-<li><strong>AI and practical digital tools:</strong> Chris has worked with AI tools such as ChatGPT, coached teams to use AI to speed up processes, and built websites and small applications for use. He has strong networks in the AI space and helps inform customer needs for problem-solving solutions, particularly for sports clubs and community organisations.</li></ul></div>
-              </details>
-              <details class="card offer-detail">
-                <summary><span class="offer-summary"><strong>Community governance and sport leadership</strong><span>Experience across participation, coaching, officiating, administration and governance, from youth through to masters sport.</span></span></summary>
-                <div class="offer-body"><ul class="detail-list">
-<li><strong>Auckland Dragon Boat Association:</strong> inaugural board member, Chair from 2009 to 2018, and Life Member. As Chair, Chris led 20 committee members and 100+ volunteers, with about $150,000 turnover and events of up to 1,600 competitors and 10,000 spectators.</li>
-<li><strong>Board Member, New Zealand Dragon Boat Association:</strong> 2010 to 2015 and 2020 to 2022.</li>
-<li><strong>Board Member, New Zealand Canoe Federation:</strong> 2017 to 2020.</li>
-<li><strong>New Zealand American Football Association:</strong> Board Member from 2002 to 2005, and Manager of the Ironblacks 2004 campaign.</li>
-<li><strong>Club creation:</strong> co-founder of City Dragons Dragon Boat Club and Polar Bears Dragon Boat Club.</li>
-<li><strong>President, Oratia Bowling Club, 2021 to present:</strong> member participation, community events and a growing community cafe.</li>
-<li><strong>Trustee, Oratia District Primary School Board, 2007 to 2010:</strong> community governance experience with executive responsibility for building, property, health and safety matters.</li>
-<li><strong>Coach, St Mary's College dragon boat teams:</strong> since 2009.</li>
-<li><strong>Paddler and masters coach:</strong> paddler, coach and current Head Coach of the Auckland Retro Rockets Masters Dragon Boat Team for the Pan Pacific Masters Games.</li>
-<li><strong>Regional dragon boat steersperson instructor:</strong> 2023 to 2026.</li>
-<li><strong>International cultural and sports exchange:</strong> experience building international sporting relationships and contributing to cultural and sister-city exchange, including Auckland–Guangzhou engagement.</li>
-<li><strong>International Dragon Boat Federation Certified Race Official:</strong> officiating experience includes Chief Official for the Auckland Dragon Boat Championships, the New Zealand Dragon Boat National Championships and the 2017 World Masters Games.</li></ul></div>
-              </details>
-              <details class="card offer-detail values-inline">
-                <summary><span class="offer-summary"><strong>Values we carry</strong><span>Values that shape how Hūnuku works with people and communities.</span></span></summary>
-                <div class="offer-body"><div class="values-list">
-              <div>
-                <blockquote>He waka eke noa</blockquote>
-                <p><em>We are all in this together; we rise and fall together.</em></p>
+            <p>Hūnuku was founded by Chris Stone, bringing together more than 25 years of experience across business, transformation, operations, governance, sport and community leadership.</p>
+          </div>
+          <div class="twocol founder-home">
+            <div>
+              <p class="lead">Chris sees a common challenge in both businesses and community organisations: people become absorbed in the rhythm of running the organisation, and over time a gap can form between what the organisation is doing and what its customers, members or communities actually need.</p>
+              <p>Chris looks for that gap and brings it to the surface. The approach is disciplined and practical: define the issue, measure what matters, analyse what is driving it, improve the experience or system, and put controls in place so better outcomes can be sustained.</p>
+            </div>
+            <div class="capability-panel founder-home-panel">
+              <h3>Experience from both sides</h3>
+              <p>Chris has worked inside complex corporate environments and across community organisations as a participant, coach, official, administrator, governor and leader. That breadth helps Hūnuku connect strategy with the people who experience the outcome.</p>
+              <p>Chris leads the work, with Hūnuku able to bring in additional people or specialist contractors where the challenge calls for them.</p>
+              <div class="actions">
+                <button class="cta" data-route="experience">Explore our experience</button>
+                <button class="ghost" data-route="contact">Let's have a chat</button>
               </div>
-              <div>
-                <blockquote>He huarahi e taea ai te tangata, he huarahi e taea ai te iwi.</blockquote>
-                <p>There is a path for individuals, and there is a path for the community.</p>
-              </div>
-              <div>
-                <blockquote>He aha te mea nui o te ao? He tangata, he tangata, he tangata.</blockquote>
-                <p>What is the most important thing in the world? It is people, it is people, it is people.</p>
-              </div>
-              <div>
-                <blockquote>Nā tō rourou, nā taku rourou, ka ora ai te iwi.</blockquote>
-                <p>With your basket and my basket, the people will live.</p>
-              </div>
-              <div>
-                <blockquote>Mā te kimi ka kite, mā te kite ka mōhio, mā te mōhio ka mārama.</blockquote>
-                <p><strong>Seek and you will discover; discover and you will know; know and you will understand.</strong></p>
-              </div></div></div>
-              </details>
             </div>
           </div>
         </div>
@@ -541,7 +374,11 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
           <div class="banner">
             <h2>Tell us what you are trying to achieve.</h2>
             <p>Start with the outcome you need. We can help you work out the next practical move.</p>
-            <button class="cta" style="background:#fff;color:#063d30" data-route="contact">Let's have a chat</button>
+            <div class="actions">
+              <button class="cta" style="background:#fff;color:#063d30" data-route="contact">Let's have a chat</button>
+              <button class="ghost" data-route="business">For business</button>
+              <button class="ghost" data-route="community">For community</button>
+            </div>
           </div>
         </div>
       </section>
