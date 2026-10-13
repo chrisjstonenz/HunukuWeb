@@ -45,7 +45,7 @@ img{display:block;max-width:100%}
 .links button{border:0;background:none;padding:8px 0;cursor:pointer;color:#17231f;position:relative}
 .links button::after{content:"";position:absolute;height:2px;left:0;bottom:0;width:0;background:var(--pounamu);transition:.2s}
 .links button:hover::after,.links button.active::after{width:100%}
-.cta{border:0;border-radius:10px;padding:13px 20px;background:var(--deep);color:#fff;font-weight:700;cursor:pointer;box-shadow:0 8px 22px rgba(6,61,48,.18)}
+.cta{border:0;border-radius:10px;padding:13px 20px;background:var(--deep);color:#fff;font-weight:700;cursor:pointer;box-shadow:0 8px 22px rgba(6,61,48,.18)}\n.cta:disabled{opacity:.62;cursor:wait;box-shadow:none}
 .mobile{display:none;margin-left:auto;border:0;background:none;font-size:1.5rem}
 .prototypebar{background:var(--deep);color:#e7f3ed;font-size:.82rem}
 .prototypebar .inner{max-width:var(--max);margin:auto;padding:8px 22px;display:flex;justify-content:space-between;gap:20px}
@@ -629,7 +629,7 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
 </div>
 
 <script>
-const FORM_ENDPOINT = "";
+const FORM_ENDPOINT = "/api/contact";
 
 let previousRoute = "home";
 const validRoutes = new Set(["home","business","community","experience","contact"]);
@@ -695,6 +695,7 @@ document.getElementById("contactForm").addEventListener("submit", async e => {
   e.preventDefault();
   const form = e.currentTarget;
   const status = document.getElementById("formStatus");
+  const submitButton = form.querySelector('button[type="submit"]');
   status.className = "form-status";
   status.style.display = "none";
 
@@ -705,47 +706,37 @@ document.getElementById("contactForm").addEventListener("submit", async e => {
   }
 
   const data = Object.fromEntries(new FormData(form).entries());
+
+  // Quietly accept honeypot submissions without sending mail.
   if (data.website) {
-    status.textContent = "Thank you. Your enquiry has been received.";
+    status.textContent = "Thank you. We have received your enquiry.";
     status.style.display = "block";
-    return;
-  }
-  delete data.website;
-
-  if (FORM_ENDPOINT) {
-    try {
-      const response = await fetch(FORM_ENDPOINT, {
-        method: "POST",
-        headers: {"Content-Type":"application/json"},
-        body: JSON.stringify(data)
-      });
-      if (!response.ok) throw new Error("Request failed");
-      status.textContent = "Thank you. We have received your enquiry and will reply personally.";
-      status.style.display = "block";
-      form.reset();
-    } catch {
-      status.textContent = "We could not send the form. Please email hunuku@outlook.co.nz or call +64 21 797 421.";
-      status.classList.add("error");
-      status.style.display = "block";
-    }
+    form.reset();
     return;
   }
 
-  const subject = "Hūnuku enquiry" + (data.organisation ? " — " + data.organisation : "");
-  const body = [
-    "Name: " + data.name,
-    "Email: " + data.email,
-    data.organisation ? "Organisation or group: " + data.organisation : "",
-    data.organisationType ? "Type: " + data.organisationType : "",
-    data.timing ? "When to start: " + data.timing : "",
-    "",
-    "What I am trying to achieve:",
-    data.message
-  ].filter(Boolean).join("\n");
+  submitButton.disabled = true;
+  submitButton.textContent = "Sending…";
 
-  status.textContent = "Your email app should open with your enquiry ready to send. If it does not, email hunuku@outlook.co.nz or call +64 21 797 421.";
-  status.style.display = "block";
-  window.location.href = "mailto:hunuku@outlook.co.nz?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  try {
+    const response = await fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify(data)
+    });
+    if (!response.ok) throw new Error("Request failed");
+
+    status.textContent = "Thank you. We have received your enquiry and will reply personally.";
+    status.style.display = "block";
+    form.reset();
+  } catch {
+    status.textContent = "We could not send your enquiry just now. Please email hunuku@outlook.co.nz or call +64 21 797 421.";
+    status.classList.add("error");
+    status.style.display = "block";
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = "Send my enquiry";
+  }
 });
 
 window.addEventListener("popstate", () => {
@@ -754,7 +745,6 @@ window.addEventListener("popstate", () => {
 });
 
 const initialHash = location.hash.replace("#","");
-setAudience(null);
 route(validRoutes.has(initialHash) ? initialHash : "home", false);
 </script>
 </body>
