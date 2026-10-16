@@ -80,7 +80,9 @@ h3{font-size:1.2rem}
 .switch{border:1px solid rgba(6,61,48,.12);border-radius:17px;background:#fff;box-shadow:var(--shadow);padding:24px 26px;display:flex;align-items:center;justify-content:space-between;gap:18px;cursor:pointer;text-align:left}
 .switch.dark{background:linear-gradient(135deg,var(--deep),var(--pounamu));color:#fff}
 .business-switch{border-color:rgba(255,255,255,.12)}
-.community-switch{background:#fff;color:var(--deep);border-color:rgba(11,106,72,.24);box-shadow:inset 0 4px 0 var(--pounamu),var(--shadow)}
+.community-switch{position:relative;overflow:hidden;isolation:isolate;background:#fff;color:var(--deep);border-color:var(--line);box-shadow:var(--shadow)}
+.community-switch::before{content:"";position:absolute;inset:0 0 0 auto;width:38%;background-image:var(--raranga);background-size:60px 60px;opacity:.10;mask-image:linear-gradient(90deg,transparent,#000 75%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 75%);pointer-events:none;z-index:-1}
+.community-switch:hover{border-color:#c9d9d0;box-shadow:0 20px 45px rgba(7,46,35,.13)}
 .community-switch small,.community-switch strong{color:var(--deep)}
 .switch h2{font-size:1.2rem;margin-bottom:16px}
 .switch strong{display:inline-block;margin-top:4px;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
