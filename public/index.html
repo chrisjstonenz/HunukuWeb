@@ -532,17 +532,17 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
           <form class="form" id="contactForm" novalidate>
             <div class="field">
               <label for="contactName">Name <span aria-hidden="true">*</span></label>
-              <input id="contactName" name="name" autocomplete="name" required>
+              <input id="contactName" name="name" autocomplete="name" maxlength="120" required>
               <div class="field-error" id="errorName"></div>
             </div>
             <div class="field">
               <label for="contactEmail">Email <span aria-hidden="true">*</span></label>
-              <input id="contactEmail" name="email" type="email" autocomplete="email" required>
+              <input id="contactEmail" name="email" type="email" autocomplete="email" maxlength="254" required>
               <div class="field-error" id="errorEmail"></div>
             </div>
             <div class="field">
               <label for="contactOrg">Organisation or group</label>
-              <input id="contactOrg" name="organisation" autocomplete="organization">
+              <input id="contactOrg" name="organisation" autocomplete="organization" maxlength="160">
               <div class="field-error"></div>
             </div>
             <div class="field">
@@ -568,7 +568,7 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
             </div>
             <div class="field">
               <label for="contactMessage">What are you trying to achieve? <span aria-hidden="true">*</span></label>
-              <textarea id="contactMessage" name="message" required></textarea>
+              <textarea id="contactMessage" name="message" maxlength="4000" required></textarea>
               <div class="field-error" id="errorMessage"></div>
             </div>
             <div class="hp-field" aria-hidden="true">
