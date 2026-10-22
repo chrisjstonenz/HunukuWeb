@@ -302,6 +302,7 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
 }
 
 </style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <div class="shell">
@@ -575,6 +576,7 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
               <label for="contactWebsite">Website</label>
               <input id="contactWebsite" name="website" tabindex="-1" autocomplete="off">
             </div>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAFf5gFWMeXYqILrw" data-theme="auto" data-callback="hunukuTurnstileVerified" data-expired-callback="hunukuTurnstileExpired" data-error-callback="hunukuTurnstileExpired"></div>
             <button class="cta" type="submit">Start a conversation</button>
             <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
           </form>
@@ -598,6 +600,9 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
 
 <script>
 const FORM_ENDPOINT = "/api/contact";
+let turnstileToken = "";
+window.hunukuTurnstileVerified = token => { turnstileToken = token; };
+window.hunukuTurnstileExpired = () => { turnstileToken = ""; };
 
 let previousRoute = "home";
 const validRoutes = new Set(["home","business","community","experience","contact"]);
@@ -674,6 +679,13 @@ document.getElementById("contactForm").addEventListener("submit", async e => {
   }
 
   const data = Object.fromEntries(new FormData(form).entries());
+  if (!turnstileToken) {
+    status.textContent = "Please complete the security check before sending your enquiry.";
+    status.classList.add("error");
+    status.style.display = "block";
+    return;
+  }
+  data["cf-turnstile-response"] = turnstileToken;
 
   // Quietly accept honeypot submissions without sending mail.
   if (data.website) {
@@ -697,11 +709,15 @@ document.getElementById("contactForm").addEventListener("submit", async e => {
     status.textContent = "Thank you. We have received your enquiry and will reply personally.";
     status.style.display = "block";
     form.reset();
+    turnstileToken = "";
+    if (window.turnstile) window.turnstile.reset();
   } catch {
     status.textContent = "We could not send your enquiry just now. Please email hunuku@outlook.co.nz or call +64 21 797 421.";
     status.classList.add("error");
     status.style.display = "block";
   } finally {
+    turnstileToken = "";
+    if (window.turnstile) window.turnstile.reset();
     submitButton.disabled = false;
     submitButton.textContent = "Send my enquiry";
   }
