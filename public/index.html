@@ -303,6 +303,12 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
 }
 
 
+
+/* Founder portraits using original uploaded GitHub images */
+.founder-feature{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(250px,.75fr);gap:42px;align-items:center}
+.founder-feature img{width:100%;height:auto;max-height:510px;object-fit:contain;object-position:center;border-radius:16px;box-shadow:var(--shadow)}
+.founder-feature p{color:var(--muted);font-size:1.05rem}
+@media(max-width:750px){.founder-feature{grid-template-columns:1fr;gap:22px}.founder-feature img{max-height:none}}
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
@@ -512,6 +518,7 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
               <p>Hands-on experience with boards, clubs, volunteers, sporting teams, community organisations and international sporting relationships.</p>
             </div>
           </div>
+          <div class="founder-feature" style="margin-top:48px"><div><div class="kicker">Meet our founder</div><h2>Experience that connects business and community.</h2><p>Chris Stone combines leadership in complex organisations with hands-on involvement in community sport, coaching and governance. That breadth of experience shapes HŪNUKU's practical, people-centred approach.</p></div><img src="/images/CJS%206.png" alt="Chris Stone, founder of HŪNUKU, in smart-casual attire" loading="lazy"></div>
           <div class="banner" style="margin-top:42px">
             <h2>Experience grounded in delivery</h2>
             <p>We've worked through complexity, developed products, led change and helped teams find better ways to work together. We know results depend on people, relationships, clear expectations and turning plans into action. We can share relevant examples and case studies in conversation.</p>
