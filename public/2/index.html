@@ -340,6 +340,21 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
 #view-home .switch .arrow{position:absolute;right:22px;bottom:20px;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;font-size:1.25rem;line-height:1;background:rgba(255,255,255,.16);pointer-events:none}
 #view-home .community-switch .arrow{background:rgba(6,61,48,.08)}
 #view-home .switch strong{padding-right:38px}
+
+/* /2 desktop viewport tuning: 1500 × 800 target, keep a teaser of the next section visible. */
+@media (min-width:901px) and (max-height:900px){
+ #view-home .hero{min-height:0}
+ #view-home .hero-grid{min-height:0;padding-top:38px;padding-bottom:84px;gap:34px}
+ #view-home .hero-copy h1{font-size:clamp(2.85rem,4.15vw,4.2rem);line-height:1.08;margin-bottom:14px}
+ #view-home .hero-copy .lead{font-size:1.08rem;line-height:1.5}
+ #view-home .home2-hero-photo{padding:8px 0}
+ #view-home .home2-hero-photo img{height:clamp(265px,39vh,340px)}
+ #view-home .actions{margin-top:20px}
+ #view-home .switcher{margin-top:-50px;padding-bottom:16px}
+ #view-home .switch{padding:17px 20px}
+ #view-home .home2-tile-photo{height:120px;margin-bottom:12px}
+ #view-home .switch h2{margin-bottom:9px}
+}
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
