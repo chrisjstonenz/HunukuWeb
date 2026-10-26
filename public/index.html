@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hūnuku | Business and community consulting in Auckland</title>
+<title>HŪNUKU | Business and community consulting in Auckland</title>
 <meta name="description" content="Hūnuku provides facilitation, team kick-offs, tailored team-building experiences, operating-model consulting and transformation support for businesses, boards and community organisations.">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-transparent.png?v=2">
 <link rel="canonical" href="https://www.hunuku.co.nz/">
@@ -312,6 +312,60 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
 
 .experience-section-photo{display:block;width:100%;height:220px;object-fit:cover;border-radius:12px;margin:14px 0 28px}
 @media(max-width:750px){.experience-section-photo{height:auto;max-height:330px;object-fit:contain}}
+
+/* /2 homepage experiment: retain the exact original hero gradient and raranga weave. */
+#view-home .hero{background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.97) 29%,rgba(255,255,255,.48) 62%,rgba(255,255,255,.08) 100%),radial-gradient(circle at 80% 18%,rgba(223,240,230,.70),transparent 24%),linear-gradient(135deg,var(--deep) 0%,var(--pounamu) 46%,#0b5841 68%,#05271f 100%)}
+#view-home .hero::before{z-index:1;opacity:.30}
+#view-home .hero-grid{grid-template-columns:minmax(0,1.1fr) minmax(290px,.9fr);gap:42px;align-items:center}
+#view-home .hero-copy{max-width:700px;position:relative;z-index:3}
+#view-home .home2-hero-photo{position:relative;z-index:2;padding:28px 0}
+#view-home .home2-hero-photo img{width:100%;height:440px;object-fit:cover;border-radius:20px;display:block;box-shadow:0 22px 65px rgba(3,43,30,.25)}
+#view-home .home2-tile-photo{width:100%;height:190px;object-fit:cover;display:block;border-radius:12px;margin-bottom:22px}
+#view-home .switch{overflow:hidden}
+#view-home .switch.dark{background:linear-gradient(135deg,var(--deep),var(--pounamu))}
+#view-home .community-switch::before{z-index:0}
+#view-home .community-switch>div{position:relative;z-index:1}
+@media(max-width:850px){#view-home .hero-grid{grid-template-columns:1fr;gap:10px}#view-home .home2-hero-photo{padding:0 0 30px}#view-home .home2-hero-photo img{height:auto;max-height:380px}#view-home .hero{background:linear-gradient(135deg,#fff 0%,#edf5ee 50%,#2b7058 100%)}#view-home .hero::before{opacity:.22}}
+
+/* Typography refinement: consistent paragraph size in founder-led home section */
+#view-home .founder-home p,
+#view-home .founder-home .lead,
+#view-home .founder-home-panel p{font-size:1.0625rem;line-height:1.65;font-weight:400}
+#view-home .founder-home-panel h3{font-size:1.45rem;line-height:1.25}
+#view-home .head>p{font-size:1.0625rem;line-height:1.65}
+
+/* /2: compact arrow affordance in audience cards, without a reserved side column */
+#view-home .switch{position:relative;display:block;padding-right:26px}
+#view-home .switch>div{width:100%;min-width:0}
+#view-home .switch .arrow{position:absolute;right:22px;bottom:20px;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;font-size:1.25rem;line-height:1;background:rgba(255,255,255,.16);pointer-events:none}
+#view-home .community-switch .arrow{background:rgba(6,61,48,.08)}
+#view-home .switch strong{padding-right:38px}
+
+/* /2 desktop viewport tuning: 1500 × 800 target, keep a teaser of the next section visible. */
+@media (min-width:901px) and (max-height:900px){
+ #view-home .hero{min-height:0}
+ #view-home .hero-grid{min-height:0;padding-top:38px;padding-bottom:84px;gap:34px}
+ #view-home .hero-copy h1{font-size:clamp(2.85rem,4.15vw,4.2rem);line-height:1.08;margin-bottom:14px}
+ #view-home .hero-copy .lead{font-size:1.08rem;line-height:1.5}
+ #view-home .home2-hero-photo{padding:8px 0}
+ #view-home .home2-hero-photo img{height:clamp(265px,39vh,340px)}
+ #view-home .actions{margin-top:20px}
+ #view-home .switcher{margin-top:-50px;padding-bottom:16px}
+ #view-home .switch{padding:17px 20px}
+ #view-home .home2-tile-photo{height:120px;margin-bottom:12px}
+ #view-home .switch h2{margin-bottom:9px}
+}
+
+/* /2 text-only hero until a replacement photograph is selected. */
+#view-home .hero-grid{grid-template-columns:minmax(0,1fr);gap:0}
+#view-home .hero-copy{max-width:920px}
+@media (min-width:901px) and (max-height:900px){#view-home .hero-grid{padding-top:32px;padding-bottom:78px}#view-home .hero-copy h1{max-width:900px}}
+
+/* Business page: authentic facilitation photograph beside the service offering. */
+.business-facilitation-photo{max-width:560px;margin:10px 0 20px}
+.business-facilitation-photo img{width:100%;height:260px;object-fit:cover;object-position:center;border-radius:14px;box-shadow:var(--shadow)}
+.business-facilitation-photo p{font-size:.92rem;color:var(--muted);margin:9px 0 0}
+@media(max-width:700px){.business-facilitation-photo img{height:auto;max-height:320px;object-fit:contain}}
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
@@ -346,6 +400,7 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
               <button class="ghost" data-scroll="audienceChoices">Choose your path</button>
             </div>
           </div>
+          
         </div>
       </div>
 
@@ -353,6 +408,7 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
         <div class="wrap switchgrid">
           <button class="switch dark business-switch" data-route="business">
             <div>
+              <img class="home2-tile-photo" src="/images/solving.jpg" alt="Business problem solving and collaboration">
               <h2>Business and corporate</h2>
               <small>Improve &nbsp; | &nbsp; Transform &nbsp; | &nbsp; Deliver</small>
               <span class="audience-promise">For small businesses, growing enterprises and large organisations ready to launch teams, align leaders, improve performance or deliver major change.</span>
@@ -361,6 +417,7 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
           </button>
           <button class="switch community-switch" data-route="community">
             <div>
+              <img class="home2-tile-photo" src="/images/Corp.jpg" alt="People paddling together in a dragon boat">
               <h2>Clubs and community organisations</h2>
               <small>Connect &nbsp; | &nbsp; Engage &nbsp; | &nbsp; Prosper</small>
               <span class="audience-promise">For boards, clubs and community groups wanting stronger participation, clearer priorities and better outcomes for the people they serve.</span>
@@ -430,6 +487,7 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
           <div class="offer-list"><details class="card offer-detail"><summary><span class="offer-summary"><strong>Start Strong — Team &amp; Group Effectiveness</strong><span>Form, launch, align or reset your team, board or programme.</span></span></summary><div class="offer-body"><div class="offer-item"><p>New team and programme kick-offs, onboarding and team charters; board, trust and committee formation; leadership off-sites; annual and quarterly planning; retrospectives and team resets. We help people build trust, clarify roles and decision rights, agree priorities and establish effective ways of working from day one.</p><p class="you-get"><strong>What you take away:</strong> Shared purpose, practical commitments, clear ownership, agreed meeting and feedback rhythms, and a plan for what happens next.</p></div></div></details>
 <details class="card offer-detail"><summary><span class="offer-summary"><strong>Better Together — Team Experiences</strong><span>Memorable activities that connect people and strengthen performance.</span></span></summary><div class="offer-body"><div class="offer-item"><p>Tailored lawn bowls, dragon boating, indoor games and outdoor challenges that bring organisational values to life. Bowls offers an inclusive, relaxed space for connection and friendly competition; dragon boating makes shared rhythm and everyone paddling in the same direction tangible. We design experiences for workplaces, boards, community groups and sporting teams at every level.</p><p class="you-get"><strong>What you take away:</strong> An engaging experience with purposeful reflection that connects the activity back to teamwork, mission, values and everyday culture.</p></div></div></details>
 <details class="card offer-detail"><summary><span class="offer-summary"><strong>Operating Models &amp; Performance</strong><span>Make the way you work support the outcomes you want.</span></span></summary><div class="offer-body"><div class="offer-item"><p>Review and design operating models, team structures, accountability, decision-making, priorities, performance measures and delivery rhythms. Support leaders as new ways of working are introduced and embedded.</p><p class="you-get"><strong>What you take away:</strong> Clearer responsibilities, more effective decisions and practical ways of working that sustain performance.</p></div></div></details>
+<div class="business-facilitation-photo"><img src="/images/CJSFAC.jpg" loading="lazy" alt="Hūnuku founder facilitating a business presentation and group session"><p>Facilitation in action — helping people connect, align and move forward.</p></div>
 <details class="card offer-detail"><summary><span class="offer-summary"><strong>Facilitation &amp; Strategic Alignment</strong><span>Better conversations, clearer decisions and committed action.</span></span></summary><div class="offer-body"><div class="offer-item"><p>Independent facilitation for strategy days, stakeholder engagement, off-sites, planning workshops and cross-functional challenges. We design and guide inclusive sessions that turn different perspectives into shared understanding.</p><p class="you-get"><strong>What you take away:</strong> Documented decisions, agreed priorities, ownership and next steps.</p></div></div></details>
 <details class="card offer-detail"><summary><span class="offer-summary"><strong>Transformation &amp; Problem Solving</strong><span>Turn complexity into practical progress.</span></span></summary><div class="offer-body"><div class="offer-item"><p>Focused diagnostics, improvement sprints, change and programme support, digital and AI conversations, prototyping and testing. We connect strategy with frontline experience and use feedback to improve what matters.</p><p class="you-get"><strong>What you take away:</strong> An evidence-based view of the challenge, practical options and a prioritised path forward.</p></div></div></details>
 <details class="card offer-detail"><summary><span class="offer-summary"><strong>Leadership &amp; Capability Development</strong><span>Build the habits behind high performance.</span></span></summary><div class="offer-body"><div class="offer-item"><p>Leader and team coaching, onboarding, performance conversations, retrospectives and support to establish continuous improvement as part of everyday work.</p><p class="you-get"><strong>What you take away:</strong> Stronger leadership, more confident teams and sustainable performance habits.</p></div></div></details></div>
