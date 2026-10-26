@@ -355,6 +355,11 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
  #view-home .home2-tile-photo{height:120px;margin-bottom:12px}
  #view-home .switch h2{margin-bottom:9px}
 }
+
+/* /2 text-only hero until a replacement photograph is selected. */
+#view-home .hero-grid{grid-template-columns:minmax(0,1fr);gap:0}
+#view-home .hero-copy{max-width:920px}
+@media (min-width:901px) and (max-height:900px){#view-home .hero-grid{padding-top:32px;padding-bottom:78px}#view-home .hero-copy h1{max-width:900px}}
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
@@ -389,7 +394,7 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
               <button class="ghost" data-scroll="audienceChoices">Choose your path</button>
             </div>
           </div>
-          <div class="home2-hero-photo"><img src="/images/CJSFAC.jpg" alt="People-focused HŪNUKU facilitation in action"></div>
+          
         </div>
       </div>
 
