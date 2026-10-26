@@ -333,6 +333,13 @@ button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,t
 #view-home .founder-home-panel p{font-size:1.0625rem;line-height:1.65;font-weight:400}
 #view-home .founder-home-panel h3{font-size:1.45rem;line-height:1.25}
 #view-home .head>p{font-size:1.0625rem;line-height:1.65}
+
+/* /2: compact arrow affordance in audience cards, without a reserved side column */
+#view-home .switch{position:relative;display:block;padding-right:26px}
+#view-home .switch>div{width:100%;min-width:0}
+#view-home .switch .arrow{position:absolute;right:22px;bottom:20px;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;font-size:1.25rem;line-height:1;background:rgba(255,255,255,.16);pointer-events:none}
+#view-home .community-switch .arrow{background:rgba(6,61,48,.08)}
+#view-home .switch strong{padding-right:38px}
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
